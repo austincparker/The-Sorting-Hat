@@ -1,3 +1,20 @@
 body {
-    background-color: goldenrod;
+    background-color: whitesmoke;
+}
+
+.welcome {
+    background-color: lightgrey;
+}
+
+.hogwarts-img {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.first-years {
+    background-color: blue;
+}
+
+.voldys-army {
+    background-color: green;
 }
