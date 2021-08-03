@@ -18,3 +18,9 @@ body {
 .voldys-army {
     background-color: green;
 }
+
+.sorting-form {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto 20px auto;
+}
