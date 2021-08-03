@@ -1,10 +1,10 @@
 const firstYears = [
     {
-        name: "Austin Parker",
+        name: "Austin Parker", // Example student.
         house: "Gryffindor"
     },
     {
-        name: "Katie Parker",
+        name: "Katie Parker", // Example student.
         house: "Hufflepuff"
     }
 ];
