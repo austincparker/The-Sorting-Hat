@@ -53,7 +53,9 @@ const studentBuilder = (studentArray) => {
 };
 
 const handleFormSubmit = (event) => { // Gives submit button functionality.
-    event.preventDefault(); // Prevents page from refreshing to default.
+    
+    if(event.target.type === "submit"){
+        event.preventDefault(); // Prevents page from refreshing to default.
 
     const newStudent = {
         name: document.querySelector('#studentName').value,
@@ -62,12 +64,14 @@ const handleFormSubmit = (event) => { // Gives submit button functionality.
 
     firstYears.unshift(newStudent);
     studentBuilder(firstYears);
-}
+    }
+};
+    
 
 const sortingFormEvents = () => {
 document
-    .querySelector('#sortingForm')
-    .addEventListener('submit', handleFormSubmit);
+    .querySelector('#formContainer')
+    .addEventListener('click', handleFormSubmit);
 }
 
 const buttonEvents = () => { // Controls what happens when buttons are clicked.
