@@ -1,5 +1,7 @@
 const firstYears = [];
 
+const deathEaters = [];
+
 // Form to be rendered to DOM when 'Begin' button is clicked.
 const sortingForm = `
         <form class="sorting-form" id="sortingForm">
@@ -19,11 +21,15 @@ const renderToDom = (divId, textToPrint) => { // This saves us some typing when 
 
 const showSortingForm = () => { // Displays the sorting form.
     renderToDom('#formContainer', sortingForm);
+    document
+    .querySelector('#sortBtn')
+    .addEventListener('click', handleFormSubmit);
+
 }
 
 const studentBuilder = (studentArray) => { // Renders cards to the DOM when the form submits.
     let domString = "";
-    studentArray.forEach(student => {
+    studentArray.forEach((student, i) => {
         domString += `
             <div class="card my-2" style="max-width: 540px;">
                 <div class="row g-0">
@@ -33,6 +39,7 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
                     <div class="card-body">
                     <h5 class="card-title">${student.name}</h5>
                     <p class="card-text">${student.house}</p>
+                    <button type="button" class="btn btn-danger" id="${i}">Expel</button>
                     </div>
                 </div>
                 </div>
@@ -42,6 +49,21 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
 
     renderToDom('#firstYears', domString);
 };
+
+const baddyBuilder = (studentArray) => {
+    let domString = "";
+    studentArray.forEach(student => {
+        domString += `
+        <div class="card my-2" style="width: 24rem;">
+            <img src="deatheatersimg.jpg" class="card-img-top" alt="image of deatheaters">
+            <div class="card-body">
+            <p class="card-text">${student.name} has become a <em><strong>Death Eater!</strong></em></p>
+        </div>
+        </div>
+        `
+    })
+    renderToDom('#voldysArmy', domString);
+}
 
 const randomNum = () => { // Rolls a random number from 0 to 4.
     return Math.floor(Math.random() * 4);
@@ -53,11 +75,8 @@ const assignHouse = () => { // Uses the rolled number to select an index of the 
     return sortHouses;
 }
 
-console.log(randomNum());
-
 const handleFormSubmit = (event) => { // Gives sort button functionality.
     
-    if(event.target.type === "submit"){ // Targets the sort button after it renders to the DOM.
         event.preventDefault(); // Prevents page from refreshing to default.
 
     const newStudent = {
@@ -72,20 +91,31 @@ const handleFormSubmit = (event) => { // Gives sort button functionality.
     studentBuilder(firstYears);
     document.querySelector("#sortingForm").reset();
     }
-    }
 };
+
+const expelStudent = (event) => {
+    const targetId = event.target.id;
+    const targetType = event.target.type;
+
+    if (targetType === "button") {
+        const dropOut = firstYears.splice(targetId, 1);
+
+        deathEaters.push(dropOut[0]);
+        baddyBuilder(deathEaters);
+        studentBuilder(firstYears);
+    }
+}
     
 
 const sortingFormEvents = () => { // Tells the studentBuilder function where to put the student cards.
-document
-    .querySelector('#formContainer')
-    .addEventListener('click', handleFormSubmit);
+
 }
 
 const buttonEvents = () => { // Controls what happens when buttons are clicked.
     document
         .querySelector('#showFormBtn')
         .addEventListener('click', showSortingForm) // Connects the 'Begin' button to the function that shows the form.
+        document.querySelector('#firstYears').addEventListener('click', expelStudent);
 
 };
 
