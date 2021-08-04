@@ -11,16 +11,12 @@ body {
     margin: 0 auto;
 }
 
-.first-years {
-    background-color: blue;
-}
-
-.voldys-army {
-    background-color: green;
-}
-
 .sorting-form {
     width: 50%;
     text-align: center;
     margin: 20px auto 20px auto;
+}
+
+#firstYears .card {
+    min-width: 200px;
 }
