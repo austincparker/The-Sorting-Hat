@@ -100,15 +100,10 @@ const expelStudent = (event) => {
     if (targetType === "button") {
         const dropOut = firstYears.splice(targetId, 1);
 
-        deathEaters.push(dropOut[0]);
+        deathEaters.unshift(dropOut[0]);
         baddyBuilder(deathEaters);
         studentBuilder(firstYears);
     }
-}
-    
-
-const sortingFormEvents = () => { // Tells the studentBuilder function where to put the student cards.
-
 }
 
 const buttonEvents = () => { // Controls what happens when buttons are clicked.
@@ -120,9 +115,8 @@ const buttonEvents = () => { // Controls what happens when buttons are clicked.
 };
 
 const init = () => {
-    console.log('Welcome to Hogwarts');
+    console.log('Welcome to Hogwarts!');
     buttonEvents();
-    sortingFormEvents();
 };
 
 init(); // This makes the magic happen.
