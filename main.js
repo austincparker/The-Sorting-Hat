@@ -1,14 +1,6 @@
-const firstYears = [
-    {
-        name: "Austin Parker", // Example student.
-        house: "Gryffindor"
-    },
-    {
-        name: "Katie Parker", // Example student.
-        house: "Hufflepuff"
-    }
-];
+const firstYears = [];
 
+// Form to be rendered to DOM when 'Begin' button is clicked.
 const sortingForm = `
         <form class="sorting-form" id="sortingForm">
             <div class="mb-3">
@@ -29,11 +21,11 @@ const showSortingForm = () => { // Displays the sorting form.
     renderToDom('#formContainer', sortingForm);
 }
 
-const studentBuilder = (studentArray) => {
+const studentBuilder = (studentArray) => { // Renders cards to the DOM when the form submits.
     let domString = "";
     studentArray.forEach(student => {
         domString += `
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card my-2" style="max-width: 540px;">
                 <div class="row g-0">
                 <div class="col-md-4">
                 </div>
@@ -41,7 +33,6 @@ const studentBuilder = (studentArray) => {
                     <div class="card-body">
                     <h5 class="card-title">${student.name}</h5>
                     <p class="card-text">${student.house}</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
                 </div>
@@ -52,23 +43,40 @@ const studentBuilder = (studentArray) => {
     renderToDom('#firstYears', domString);
 };
 
-const handleFormSubmit = (event) => { // Gives submit button functionality.
+const randomNum = () => { // Rolls a random number from 0 to 4.
+    return Math.floor(Math.random() * 4);
+}
+
+const assignHouse = () => { // Uses the rolled number to select an index of the houses array.
+    const housesArray = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
+    let sortHouses = housesArray[randomNum()];
+    return sortHouses;
+}
+
+console.log(randomNum());
+
+const handleFormSubmit = (event) => { // Gives sort button functionality.
     
-    if(event.target.type === "submit"){
+    if(event.target.type === "submit"){ // Targets the sort button after it renders to the DOM.
         event.preventDefault(); // Prevents page from refreshing to default.
 
     const newStudent = {
         name: document.querySelector('#studentName').value,
-        house: "Gryffindor"
+        house: assignHouse()
     }
 
-    firstYears.unshift(newStudent);
+    if(newStudent.name.length < 1){
+        alert('You cannot sort an empty chair!');
+    } else {
+        firstYears.unshift(newStudent);
     studentBuilder(firstYears);
+    document.querySelector("#sortingForm").reset();
+    }
     }
 };
     
 
-const sortingFormEvents = () => {
+const sortingFormEvents = () => { // Tells the studentBuilder function where to put the student cards.
 document
     .querySelector('#formContainer')
     .addEventListener('click', handleFormSubmit);
@@ -87,4 +95,4 @@ const init = () => {
     sortingFormEvents();
 };
 
-init();
+init(); // This makes the magic happen.
