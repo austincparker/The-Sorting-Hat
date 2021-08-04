@@ -1,6 +1,6 @@
-const firstYears = [];
+const firstYears = []; // Goody array.
 
-const deathEaters = [];
+const deathEaters = []; // Baddy array.
 
 // Form to be rendered to DOM when 'Begin' button is clicked.
 const sortingForm = `
@@ -31,7 +31,7 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
     let domString = "";
     studentArray.forEach((student, i) => {
         domString += `
-            <div class="card my-2" style="max-width: 540px;">
+            <div class="card my-2" style="max-width: 500px;">
                 <div class="row g-0">
                 <div class="col-md-4">
                 </div>
@@ -50,11 +50,11 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
     renderToDom('#firstYears', domString);
 };
 
-const baddyBuilder = (studentArray) => {
+const baddyBuilder = (studentArray) => { // After the expel button is pressed, renders the new baddy card to the DOM.
     let domString = "";
     studentArray.forEach(student => {
         domString += `
-        <div class="card my-2" style="width: 24rem;">
+        <div class="card my-2" style="max-width: 24rem;">
             <img src="deatheatersimg.jpg" class="card-img-top" alt="image of deatheaters">
             <div class="card-body">
             <p class="card-text">${student.name} has become a <em><strong>Death Eater!</strong></em></p>
@@ -93,7 +93,7 @@ const handleFormSubmit = (event) => { // Gives sort button functionality.
     }
 };
 
-const expelStudent = (event) => {
+const expelStudent = (event) => { // Gives the expel button functionality.
     const targetId = event.target.id;
     const targetType = event.target.type;
 
