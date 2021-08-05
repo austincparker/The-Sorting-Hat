@@ -25,7 +25,7 @@ const showSortingForm = () => { // Displays the sorting form.
     .querySelector('#sortBtn')
     .addEventListener('click', handleFormSubmit);
 
-}
+};
 
 const studentBuilder = (studentArray) => { // Renders cards to the DOM when the form submits.
     let domString = "";
@@ -33,7 +33,7 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
         domString += `
             <div class="card my-2" style="max-width: 500px;">
                 <div class="row g-0">
-                <div class="col-md-4">
+                <div class="col-md-4" style="background-color:${student.color};">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -45,6 +45,7 @@ const studentBuilder = (studentArray) => { // Renders cards to the DOM when the 
                 </div>
             </div>
         `
+
     });
 
     renderToDom('#firstYears', domString);
@@ -61,19 +62,19 @@ const baddyBuilder = (studentArray) => { // After the expel button is pressed, r
         </div>
         </div>
         `
-    })
+    });
     renderToDom('#voldysArmy', domString);
-}
+};
 
 const randomNum = () => { // Rolls a random number from 0 to 4.
     return Math.floor(Math.random() * 4);
-}
+};
 
 const assignHouse = () => { // Uses the rolled number to select an index of the houses array.
     const housesArray = ["Ravenclaw", "Hufflepuff", "Gryffindor", "Slytherin"];
     let sortHouses = housesArray[randomNum()];
     return sortHouses;
-}
+};
 
 const handleFormSubmit = (event) => { // Gives sort button functionality.
     
@@ -82,7 +83,24 @@ const handleFormSubmit = (event) => { // Gives sort button functionality.
     const newStudent = {
         name: document.querySelector('#studentName').value,
         house: assignHouse()
+    };
+
+    if(newStudent.house === "Gryffindor"){ // Applies the house colors to each card.
+        newStudent.color = "#AE0001";
+        newStudent.houseNum = 1;
     }
+    if(newStudent.house === "Slytherin"){
+        newStudent.color = "#2A623D";
+        newStudent.houseNum = 2;
+    }
+    if(newStudent.house === "Hufflepuff"){
+        newStudent.color = "#FFDB00";
+        newStudent.houseNum = 3;
+    }
+    if(newStudent.house === "Ravenclaw"){
+        newStudent.color = "#222F5B";
+        newStudent.houseNum = 4;
+    };
 
     if(newStudent.name.length < 1){
         alert('You cannot sort an empty chair!');
@@ -90,7 +108,7 @@ const handleFormSubmit = (event) => { // Gives sort button functionality.
         firstYears.unshift(newStudent);
     studentBuilder(firstYears);
     document.querySelector("#sortingForm").reset();
-    }
+    };
 };
 
 const expelStudent = (event) => { // Gives the expel button functionality.
@@ -103,8 +121,8 @@ const expelStudent = (event) => { // Gives the expel button functionality.
         deathEaters.unshift(dropOut[0]);
         baddyBuilder(deathEaters);
         studentBuilder(firstYears);
-    }
-}
+    };
+};
 
 const buttonEvents = () => { // Controls what happens when buttons are clicked.
     document
