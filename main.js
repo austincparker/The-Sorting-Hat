@@ -106,7 +106,7 @@ const handleFormSubmit = (event) => { // Gives sort button functionality.
         alert('You cannot sort an empty chair!');
     } else {
         firstYears.unshift(newStudent);
-        const orderedFYs = firstYears.sort((a, b) => a.houseNum - b.houseNum);
+        const orderedFYs = firstYears.sort((a, b) => a.houseNum - b.houseNum); // This orders the first years by a numeric value assigned to their house.
 
         studentBuilder(orderedFYs);
         document.querySelector("#sortingForm").reset();
