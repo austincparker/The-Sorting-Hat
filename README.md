@@ -14,7 +14,7 @@ https://acp-sorting-hat.netlify.app/
 - Each card displays the color of the house that student has been assigned.
 - Each card has an 'Expel' button capable of sending that student object to a new array which gets rendered to the DOM and displayed in the Voldy's Army section.
 - The app is designed to be used with any device and is responsive.
-- 
+
 ## Video Walkthrough of APP NAME
 https://www.loom.com/share/636d6a7702474b058449636276d550f3
 
