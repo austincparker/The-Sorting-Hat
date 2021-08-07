@@ -18,9 +18,6 @@ https://acp-sorting-hat.netlify.app/
 ## Video Walkthrough of APP NAME
 https://www.loom.com/share/636d6a7702474b058449636276d550f3
 
-## Code Snippet
-PLACE CODE SNIPPET HERE
-
 ## Project Screenshots
 ![screenshot-acp-sorting-hat netlify app-2021 08 06-20_57_28](https://user-images.githubusercontent.com/70224936/128584425-200315ad-b57c-40be-b2ad-fdcbf9900d6b.png)
 
