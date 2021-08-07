@@ -1,41 +1,30 @@
-# Sorting Hat
+# The Sorting Hat  [![Netlify Status](https://api.netlify.com/api/v1/badges/432bd460-28ef-4cfe-b1ed-b368dda1b7a2/deploy-status)](https://app.netlify.com/sites/acp-sorting-hat/deploys)
 
-# This is the name of my Project  [![Netlify Status](https://api.netlify.com/api/v1/badges/4ab7e730-7ed3-4cfd-a988-66195e79a991/deploy-status)](https://app.netlify.com/sites/drt-sortinghat/deploys)
-<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
+True to Harry Potter lore... The Sorting Hat will place each first year student into either Gryffindor, Slytherin, Hufflepuff, or Ravenclaw. All one needs to do to start the sorting process is to click 'Begin'. From there, the sorting hat does most of the work. Once a student is placed into a house, they can be expelled. This, of course, will lead to said student taking up arms against the wizarding world as a part of Voldemort's army.
 
-Here I am putting an overview of what my project is about. It comes below the name of my project so that others can read what it is about and get more details.
+https://acp-sorting-hat.netlify.app/
 
-[View App](#your-link)
+## About the User
+- The ideal user for this app is a Harry Potter fan who is looking for some quick entertainment.
 
-## Get Started <!-- OPTIONAL, but doesn't hurt -->
+## Features
+- When the form is submitted, the new student is added to an array of student objects that are then pushed to the DOM and displayed as cards in the First Years section.
+- The student object at this point has been assigned a house property with a random house value.
+- The cards are ordered by which house they have been assigned. Gryffindor is first, followed by Slytherin, Hufflepuff, and finally Ravenclaw.
+- Each card displays the color of the house that student has been assigned.
+- Each card has an 'Expel' button capable of sending that student object to a new array which gets rendered to the DOM and displayed in the Voldy's Army section.
+- The app is designed to be used with any device and is responsive.
+- 
+## Video Walkthrough of APP NAME
+https://www.loom.com/share/636d6a7702474b058449636276d550f3
+
+## Code Snippet
 PLACE CODE SNIPPET HERE
 
-## About the User <!-- This is a scaled down user persona -->
-- The ideal user for this application is a teacher
-- They have students in their classrooms that they would like to put into random groups and they have a love and passion of Harry Potter
-- The problem this app solves for them is it allows them to get their students involved and excited about being in random groups. The students have felt that the groups have not been so random and based on favorites.
-
-## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
-- When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
-- House Colors: The color of the student's card changes depending on which house they were sorted.
-- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
-
-## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
-
-## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#your-link)
-- [Wireframes](#your-link)
-- [Project Board](#your-link)
-
-## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
-
-## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<img width="1148" alt="Your Alt" src="your-link.png">
+## Project Screenshots
+![screenshot-acp-sorting-hat netlify app-2021 08 06-20_57_28](https://user-images.githubusercontent.com/70224936/128584425-200315ad-b57c-40be-b2ad-fdcbf9900d6b.png)
 
 ## Contributors
-- [YOUR NAME](https://github.com/your-github-url)
+- Austin Parker https://github.com/austincparker
 
 
